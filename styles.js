@@ -1,4 +1,4 @@
-// Step 3: 
+// Step 1: 
 function getComputerChoice() {
     const choices = ['Rock', 'Paper', 'Scissors'];
     const randomIndex = Math.floor(Math.random() * choices.length);
@@ -6,7 +6,7 @@ function getComputerChoice() {
 }
 
 
-// Step 4:
+// Step 2:
 // Player selection to be case-insensitive
 function playRound(playerSelection, computerSelection) {
     playerSelection = playerSelection.toLowerCase();
@@ -26,26 +26,30 @@ function playRound(playerSelection, computerSelection) {
     }
 }
 
-// step 6:
+// step 3:
 function playGame() {
     let playerScore = 0;
     let computerScore = 0;
+    const totalRounds = 5;
 
-    for (var i = 1; i <= 5; i++) {
+    for (var i = 1; i <= totalRounds; i++) {
         var playerSelection = prompt("Enter your choice (rock, paper, scissors)");
         var computerSelection = getComputerChoice();
+
         const result = playRound(playerSelection, computerSelection);
-        // console.log(playRound(playerSelection, computerSelection));
+
         if (result.includes("Won")) {
             playerScore++;
-            // console.log(playerScore);
+
         } else if (result.includes("Lost")) {
             computerScore++;
-            // console.log(computerScore);
+
         }
 
     }
-    return `Player Score in ${i - 1} rounds: ${playerScore} \nComputer Score in ${i - 1} rounds: ${computerScore} \nTied Score in ${i - 1} rounds: ${(i - 1) - (playerScore + computerScore)}`;
+    return `Player Score in ${i - 1} rounds: ${playerScore} 
+            \nComputer Score in ${i - 1} rounds: ${computerScore} 
+            \nTied Score in ${i - 1} rounds: ${(i - 1) - (playerScore + computerScore)}`;
 }
 
 console.log(playGame());
